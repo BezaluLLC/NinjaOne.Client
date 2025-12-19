@@ -1,0 +1,27 @@
+name: NuGet Publish
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: prod
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+          source-url: https://nuget.pkg.github.com/BezaluLLC/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - run: dotnet build --configuration Release CredentialManagerLib
+      - name: Create the package
+        run: dotnet pack --configuration Release CredentialManagerLib
+      - name: Publish the package to GPR
+        run: dotnet nuget push CredentialManagerLib/bin/Release/*.nupkg --skip-duplicate
