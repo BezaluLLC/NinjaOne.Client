@@ -20,8 +20,8 @@ jobs:
           source-url: https://nuget.pkg.github.com/BezaluLLC/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - run: dotnet build --configuration Release CredentialManagerLib
+      - run: dotnet build --configuration Release NinjaOne.Client
       - name: Create the package
-        run: dotnet pack --configuration Release CredentialManagerLib
+        run: dotnet pack --configuration Release NinjaOne.Client
       - name: Publish the package to GPR
         run: dotnet nuget push CredentialManagerLib/bin/Release/*.nupkg --skip-duplicate
