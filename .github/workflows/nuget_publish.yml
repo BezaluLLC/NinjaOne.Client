@@ -20,6 +20,18 @@ jobs:
           source-url: https://nuget.pkg.github.com/BezaluLLC/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Install Kiota CLI
+        run: dotnet tool install --global Microsoft.OpenApi.Kiota
+      - name: Generate SDK
+        run: |
+          kiota generate \
+            --language CSharp \
+            --openapi https://app.ninjarmm.com/apidocs/NinjaRMM-API-v2.json \
+            --class-name NinjaOneClient \
+            --namespace-name NinjaOne.Client \
+            --output ./Sdk \
+            --clean-output \
+            --ll warning
       - run: dotnet build --configuration Release
       - name: Create the package
         run: dotnet pack --configuration Release
