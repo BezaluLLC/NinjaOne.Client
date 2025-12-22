@@ -36,4 +36,4 @@ jobs:
       - name: Create the package
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
-        run: dotnet nuget push NinjaOne.Client/bin/Release/*.nupkg --skip-duplicate
+        run: dotnet nuget push bin/Release/*.nupkg --skip-duplicate
