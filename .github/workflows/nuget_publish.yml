@@ -1,27 +1,43 @@
 name: NuGet Publish
+
 on:
   push:
     tags:
       - 'v*'
   workflow_dispatch:
-    inputs: {}
+
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    environment: prod
     permissions:
       contents: read
       packages: write
+
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
           source-url: https://nuget.pkg.github.com/BezaluLLC/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - run: dotnet build --configuration Release NinjaOne.Client
-      - name: Create the package
-        run: dotnet pack --configuration Release NinjaOne.Client
-      - name: Publish the package to GPR
-        run: dotnet nuget push CredentialManagerLib/bin/Release/*.nupkg --skip-duplicate
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore -c Release
+
+      - name: Test
+        run: dotnet test --no-build -c Release
+
+      - name: Pack
+        run: dotnet pack NinjaOne.Client/NinjaOne.Client.csproj --no-build -c Release -o ./nupkg
+
+      - name: Publish to GitHub Packages
+        run: dotnet nuget push ./nupkg/*.nupkg --skip-duplicate
