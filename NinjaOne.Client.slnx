@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="NinjaOne.Client.csproj" />
+  <Project Path="NinjaOne.Client/NinjaOne.Client.csproj" />
+  <Project Path="NinjaOne.Client.Tests/NinjaOne.Client.Tests.csproj" />
+
 </Solution>
