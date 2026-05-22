@@ -29,19 +29,6 @@ namespace NinjaOne.Client.V2.Billing.Accounts
                 return new global::NinjaOne.Client.V2.Billing.Accounts.Item.AccountsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.billing.accounts.item collection</summary>
-        /// <param name="position">Account ID</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Accounts.Item.AccountsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Billing.Accounts.Item.AccountsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::NinjaOne.Client.V2.Billing.Accounts.Item.AccountsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Billing.Accounts.AccountsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -86,37 +73,16 @@ namespace NinjaOne.Client.V2.Billing.Accounts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostResponse?> PostAsAccountsPostResponseAsync(global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostResponse?> PostAsync(global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostResponse> PostAsAccountsPostResponseAsync(global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostResponse> PostAsync(global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new account given its content
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Accounts.AccountsResponse"/></returns>
-        /// <param name="body">Representation of a ninja billing Account request.</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsAccountsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Accounts.AccountsResponse?> PostAsync(global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Billing.Accounts.AccountsResponse> PostAsync(global::NinjaOne.Client.V2.Billing.Accounts.AccountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Accounts.AccountsResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Accounts.AccountsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list with all existing accounts.
@@ -167,22 +133,6 @@ namespace NinjaOne.Client.V2.Billing.Accounts
         public global::NinjaOne.Client.V2.Billing.Accounts.AccountsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.Billing.Accounts.AccountsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AccountsRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AccountsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

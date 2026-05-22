@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.Knowledgebase.Article
                 return new global::NinjaOne.Client.V2.Knowledgebase.Article.Item.WithArticleItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.knowledgebase.article.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Knowledgebase.Article.Item.WithArticleItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Knowledgebase.Article.Item.WithArticleItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("articleId", position);
-                return new global::NinjaOne.Client.V2.Knowledgebase.Article.Item.WithArticleItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Knowledgebase.Article.ArticleRequestBuilder"/> and sets the default values.
         /// </summary>

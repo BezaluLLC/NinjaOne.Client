@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.RelatedItems.WithEntity.Item
                 return new global::NinjaOne.Client.V2.RelatedItems.WithEntity.Item.Item.WithEntityItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.relatedItems.withEntity.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.RelatedItems.WithEntity.Item.Item.WithEntityItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.RelatedItems.WithEntity.Item.Item.WithEntityItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("entityId", position);
-                return new global::NinjaOne.Client.V2.RelatedItems.WithEntity.Item.Item.WithEntityItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.RelatedItems.WithEntity.Item.WithEntityTypeItemRequestBuilder"/> and sets the default values.
         /// </summary>

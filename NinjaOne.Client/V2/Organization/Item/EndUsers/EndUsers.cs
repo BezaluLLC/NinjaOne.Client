@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -12,7 +11,7 @@ namespace NinjaOne.Client.V2.Organization.Item.EndUsers
     /// Assigned device owner
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EndUsers : ApiException, IAdditionalDataHolder, IParsable
+    public partial class EndUsers : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -64,8 +63,6 @@ namespace NinjaOne.Client.V2.Organization.Item.EndUsers
 #else
         public string LastName { get; set; }
 #endif
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
         /// <summary>The mfaConfigured property</summary>
         public bool? MfaConfigured { get; set; }
         /// <summary>The mustChangePw property</summary>

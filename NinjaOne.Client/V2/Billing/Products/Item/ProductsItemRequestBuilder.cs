@@ -52,34 +52,15 @@ namespace NinjaOne.Client.V2.Billing.Products.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsGetResponse?> GetAsProductsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsGetResponse> GetAsProductsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsGetResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Products.Item.ProductsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieves a product by its unique identifier.The content field structure varies by quantity type and includes price, cost, taxable, billing type, and other type-specific configuration fields. See the examples for each quantity type to understand the complete structure.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsProductsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a previously created product given its ID and updated content.The content field structure varies by quantity type and must include all required fields for that type (price, cost, taxable, billing, and type-specific fields). See the create product description for details on required fields per quantity type.**Note:** The quantity type cannot be changed after product creation.
@@ -91,40 +72,17 @@ namespace NinjaOne.Client.V2.Billing.Products.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsPutResponse?> PutAsProductsPutResponseAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsPutResponse?> PutAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsPutResponse> PutAsProductsPutResponseAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsPutResponse> PutAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
             var requestInfo = ToPutRequestInformation(body, contentType, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsPutResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Products.Item.ProductsPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates a previously created product given its ID and updated content.The content field structure varies by quantity type and must include all required fields for that type (price, cost, taxable, billing, and type-specific fields). See the create product description for details on required fields per quantity type.**Note:** The quantity type cannot be changed after product creation.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse"/></returns>
-        /// <param name="body">Binary request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="contentType">The request body content type.</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PutAsProductsPutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse?> PutAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse> PutAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
-            var requestInfo = ToPutRequestInformation(body, contentType, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Products.Item.ProductsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a product by its unique identifier.The content field structure varies by quantity type and includes price, cost, taxable, billing type, and other type-specific configuration fields. See the examples for each quantity type to understand the complete structure.
@@ -177,22 +135,6 @@ namespace NinjaOne.Client.V2.Billing.Products.Item
         public global::NinjaOne.Client.V2.Billing.Products.Item.ProductsItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.Billing.Products.Item.ProductsItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ProductsItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ProductsItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

@@ -51,19 +51,6 @@ namespace NinjaOne.Client.V2.Billing.TicketProducts
                 return new global::NinjaOne.Client.V2.Billing.TicketProducts.Item.WithTicketProductItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.billing.ticketProducts.item collection</summary>
-        /// <param name="position">Ticket product ID</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.TicketProducts.Item.WithTicketProductItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Billing.TicketProducts.Item.WithTicketProductItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("ticketProductId", position);
-                return new global::NinjaOne.Client.V2.Billing.TicketProducts.Item.WithTicketProductItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Billing.TicketProducts.TicketProductsRequestBuilder"/> and sets the default values.
         /// </summary>

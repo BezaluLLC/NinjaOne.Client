@@ -47,54 +47,40 @@ namespace NinjaOne.Client.V2.Ticketing.Ticket.Item
         /// <summary>
         /// Returns a ticket
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket5XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketGetResponse>(requestInfo, global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Change ticket fields. Does not accept comments
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutResponse?> PutAsync(global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutResponse> PutAsync(global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicket5XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutResponse>(requestInfo, global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a ticket
@@ -145,22 +131,6 @@ namespace NinjaOne.Client.V2.Ticketing.Ticket.Item
         public global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.Ticketing.Ticket.Item.WithTicketItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithTicketItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithTicketItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

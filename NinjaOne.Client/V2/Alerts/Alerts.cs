@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,7 +9,7 @@ namespace NinjaOne.Client.V2.Alerts
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Alerts : ApiException, IAdditionalDataHolder, IParsable
+    public partial class Alerts : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,10 +29,10 @@ namespace NinjaOne.Client.V2.Alerts
         /// <summary>Alert data</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::NinjaOne.Client.V2.Alerts.Alerts_data? DataEscaped { get; set; }
+        public global::NinjaOne.Client.V2.Alerts.Alerts_data? Data { get; set; }
 #nullable restore
 #else
-        public global::NinjaOne.Client.V2.Alerts.Alerts_data DataEscaped { get; set; }
+        public global::NinjaOne.Client.V2.Alerts.Alerts_data Data { get; set; }
 #endif
         /// <summary>Device information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,15 +44,13 @@ namespace NinjaOne.Client.V2.Alerts
 #endif
         /// <summary>Device identifier</summary>
         public int? DeviceId { get; set; }
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => MessageEscaped ?? string.Empty; }
         /// <summary>Alert message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MessageEscaped { get; set; }
+        public string? Message { get; set; }
 #nullable restore
 #else
-        public string MessageEscaped { get; set; }
+        public string Message { get; set; }
 #endif
         /// <summary>The priority property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,10 +134,10 @@ namespace NinjaOne.Client.V2.Alerts
                 { "conditionHealthStatus", n => { ConditionHealthStatus = n.GetEnumValue<global::NinjaOne.Client.V2.Alerts.Alerts_conditionHealthStatus>(); } },
                 { "conditionName", n => { ConditionName = n.GetStringValue(); } },
                 { "createTime", n => { CreateTime = n.GetDoubleValue(); } },
-                { "data", n => { DataEscaped = n.GetObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_data>(global::NinjaOne.Client.V2.Alerts.Alerts_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_data>(global::NinjaOne.Client.V2.Alerts.Alerts_data.CreateFromDiscriminatorValue); } },
                 { "device", n => { Device = n.GetObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_device>(global::NinjaOne.Client.V2.Alerts.Alerts_device.CreateFromDiscriminatorValue); } },
                 { "deviceId", n => { DeviceId = n.GetIntValue(); } },
-                { "message", n => { MessageEscaped = n.GetStringValue(); } },
+                { "message", n => { Message = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetStringValue(); } },
                 { "psaTicketId", n => { PsaTicketId = n.GetObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_psaTicketId>(global::NinjaOne.Client.V2.Alerts.Alerts_psaTicketId.CreateFromDiscriminatorValue); } },
                 { "severity", n => { Severity = n.GetStringValue(); } },
@@ -165,10 +162,10 @@ namespace NinjaOne.Client.V2.Alerts
             writer.WriteEnumValue<global::NinjaOne.Client.V2.Alerts.Alerts_conditionHealthStatus>("conditionHealthStatus", ConditionHealthStatus);
             writer.WriteStringValue("conditionName", ConditionName);
             writer.WriteDoubleValue("createTime", CreateTime);
-            writer.WriteObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_data>("data", DataEscaped);
+            writer.WriteObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_data>("data", Data);
             writer.WriteObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_device>("device", Device);
             writer.WriteIntValue("deviceId", DeviceId);
-            writer.WriteStringValue("message", MessageEscaped);
+            writer.WriteStringValue("message", Message);
             writer.WriteStringValue("priority", Priority);
             writer.WriteObjectValue<global::NinjaOne.Client.V2.Alerts.Alerts_psaTicketId>("psaTicketId", PsaTicketId);
             writer.WriteStringValue("severity", Severity);

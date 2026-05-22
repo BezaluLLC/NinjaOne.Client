@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.Organization.Item.Document
                 return new global::NinjaOne.Client.V2.Organization.Item.Document.Item.WithClientDocumentItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.organization.item.document.item collection</summary>
-        /// <param name="position">Organization document identifier</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Organization.Item.Document.Item.WithClientDocumentItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Organization.Item.Document.Item.WithClientDocumentItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("clientDocumentId", position);
-                return new global::NinjaOne.Client.V2.Organization.Item.Document.Item.WithClientDocumentItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Organization.Item.Document.DocumentRequestBuilder"/> and sets the default values.
         /// </summary>

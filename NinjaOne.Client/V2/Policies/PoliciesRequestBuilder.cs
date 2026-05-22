@@ -29,19 +29,6 @@ namespace NinjaOne.Client.V2.Policies
                 return new global::NinjaOne.Client.V2.Policies.Item.WithPolicy_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.policies.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Policies.Item.WithPolicy_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Policies.Item.WithPolicy_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("policy_id", position);
-                return new global::NinjaOne.Client.V2.Policies.Item.WithPolicy_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Policies.PoliciesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -61,52 +48,41 @@ namespace NinjaOne.Client.V2.Policies
         /// <summary>
         /// Returns list of policies
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A List&lt;global::NinjaOne.Client.V2.Policies.Policies&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="List<global::NinjaOne.Client.V2.Policies.Policies>">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Policies.Policies>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Policies.Policies>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::NinjaOne.Client.V2.Policies.Policies.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::NinjaOne.Client.V2.Policies.Policies>(requestInfo, global::NinjaOne.Client.V2.Policies.Policies.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Creates new policy using (New Root, Child, Copy)
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::NinjaOne.Client.V2.Policies.PoliciesPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::NinjaOne.Client.V2.Policies.Policies4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::NinjaOne.Client.V2.Policies.Policies5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::NinjaOne.Client.V2.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Policies.PoliciesPostResponse?> PostAsync(global::NinjaOne.Client.V2.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::NinjaOne.Client.V2.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Policies.PoliciesPostResponse> PostAsync(global::NinjaOne.Client.V2.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::NinjaOne.Client.V2.Policies.Policies4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::NinjaOne.Client.V2.Policies.Policies5XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Policies.PoliciesPostResponse>(requestInfo, global::NinjaOne.Client.V2.Policies.PoliciesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns list of policies
@@ -159,44 +135,17 @@ namespace NinjaOne.Client.V2.Policies
             return new global::NinjaOne.Client.V2.Policies.PoliciesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PoliciesRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
         /// Creates new policy using (New Root, Child, Copy)
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PoliciesRequestBuilderPostQueryParameters 
         {
             /// <summary>Policy creation mode</summary>
-            [Obsolete("This property is deprecated, use ModeAsPostModeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("mode")]
-            public string? Mode { get; set; }
-#nullable restore
-#else
-            [QueryParameter("mode")]
-            public string Mode { get; set; }
-#endif
-            /// <summary>Policy creation mode</summary>
-            [QueryParameter("mode")]
-            public global::NinjaOne.Client.V2.Policies.PostModeQueryParameterType? ModeAsPostModeQueryParameterType { get; set; }
+            public global::NinjaOne.Client.V2.Policies.PostModeQueryParameterType? Mode { get; set; }
             /// <summary>Template Policy identifier</summary>
             [QueryParameter("templatePolicyId")]
             public int? TemplatePolicyId { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PoliciesRequestBuilderPostRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

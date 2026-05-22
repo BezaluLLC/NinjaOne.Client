@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.Device
                 return new global::NinjaOne.Client.V2.Device.Item.DeviceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.device.item collection</summary>
-        /// <param name="position">Device identifier</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Device.Item.DeviceItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Device.Item.DeviceItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::NinjaOne.Client.V2.Device.Item.DeviceItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Device.DeviceRequestBuilder"/> and sets the default values.
         /// </summary>

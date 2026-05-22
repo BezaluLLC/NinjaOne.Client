@@ -58,34 +58,15 @@ namespace NinjaOne.Client.V2.CustomFields
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsGetResponse?> GetAsCustomFieldsGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.CustomFields.CustomFieldsRequestBuilder.CustomFieldsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsGetResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.CustomFields.CustomFieldsRequestBuilder.CustomFieldsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsGetResponse> GetAsCustomFieldsGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.CustomFields.CustomFieldsRequestBuilder.CustomFieldsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsGetResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.CustomFields.CustomFieldsRequestBuilder.CustomFieldsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.CustomFields.CustomFieldsGetResponse>(requestInfo, global::NinjaOne.Client.V2.CustomFields.CustomFieldsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieves custom fields (node attributes) with pagination support. Maximum 500 items per page.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsCustomFieldsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.CustomFields.CustomFieldsRequestBuilder.CustomFieldsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.CustomFields.CustomFieldsRequestBuilder.CustomFieldsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse>(requestInfo, global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new custom field (node attribute) with the specified configuration
@@ -96,37 +77,16 @@ namespace NinjaOne.Client.V2.CustomFields
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostResponse?> PostAsCustomFieldsPostResponseAsync(global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostResponse?> PostAsync(global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostResponse> PostAsCustomFieldsPostResponseAsync(global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostResponse> PostAsync(global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostResponse>(requestInfo, global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new custom field (node attribute) with the specified configuration
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsCustomFieldsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse?> PostAsync(global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse> PostAsync(global::NinjaOne.Client.V2.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse>(requestInfo, global::NinjaOne.Client.V2.CustomFields.CustomFieldsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves custom fields (node attributes) with pagination support. Maximum 500 items per page.
@@ -197,22 +157,6 @@ namespace NinjaOne.Client.V2.CustomFields
             /// <summary>Number of items per page (default: 50, min: 5, max: 500)</summary>
             [QueryParameter("pageSize")]
             public int? PageSize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.CustomFields.CustomFieldsRequestBuilder.CustomFieldsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

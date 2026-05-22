@@ -64,34 +64,15 @@ namespace NinjaOne.Client.V2.SoftwareLicense.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseGetResponse?> GetAsWithLicenseGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseGetResponse> GetAsWithLicenseGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseGetResponse>(requestInfo, global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get a Software License by Id
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsWithLicenseGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse>(requestInfo, global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a Software License with the provided metadata
@@ -102,37 +83,16 @@ namespace NinjaOne.Client.V2.SoftwareLicense.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutResponse?> PutAsWithLicensePutResponseAsync(global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutResponse?> PutAsync(global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutResponse> PutAsWithLicensePutResponseAsync(global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutResponse> PutAsync(global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutResponse>(requestInfo, global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Update a Software License with the provided metadata
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PutAsWithLicensePutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse?> PutAsync(global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse> PutAsync(global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicensePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse>(requestInfo, global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete the Software License with the provided id
@@ -202,30 +162,6 @@ namespace NinjaOne.Client.V2.SoftwareLicense.Item
         public global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.SoftwareLicense.Item.WithLicenseItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithLicenseItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithLicenseItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithLicenseItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

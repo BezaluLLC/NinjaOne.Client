@@ -29,19 +29,6 @@ namespace NinjaOne.Client.V2.Knowledgebase.Folder
                 return new global::NinjaOne.Client.V2.Knowledgebase.Folder.Item.WithFolderItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.knowledgebase.folder.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Knowledgebase.Folder.Item.WithFolderItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Knowledgebase.Folder.Item.WithFolderItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("folderId", position);
-                return new global::NinjaOne.Client.V2.Knowledgebase.Folder.Item.WithFolderItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -66,34 +53,15 @@ namespace NinjaOne.Client.V2.Knowledgebase.Folder
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderGetResponse?> GetAsFolderGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder.FolderRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderGetResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder.FolderRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderGetResponse> GetAsFolderGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder.FolderRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderGetResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder.FolderRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderGetResponse>(requestInfo, global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns knowledge base folder and its content
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsFolderGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder.FolderRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder.FolderRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderResponse>(requestInfo, global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns knowledge base folder and its content
@@ -142,14 +110,6 @@ namespace NinjaOne.Client.V2.Knowledgebase.Folder
 #endif
             [QueryParameter("organizationId")]
             public int? OrganizationId { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FolderRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Knowledgebase.Folder.FolderRequestBuilder.FolderRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

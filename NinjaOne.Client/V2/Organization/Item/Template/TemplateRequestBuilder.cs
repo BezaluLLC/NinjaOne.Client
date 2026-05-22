@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.Organization.Item.Template
                 return new global::NinjaOne.Client.V2.Organization.Item.Template.Item.WithDocumentTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.organization.item.template.item collection</summary>
-        /// <param name="position">Document template identifier</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Organization.Item.Template.Item.WithDocumentTemplateItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Organization.Item.Template.Item.WithDocumentTemplateItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("documentTemplateId", position);
-                return new global::NinjaOne.Client.V2.Organization.Item.Template.Item.WithDocumentTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Organization.Item.Template.TemplateRequestBuilder"/> and sets the default values.
         /// </summary>

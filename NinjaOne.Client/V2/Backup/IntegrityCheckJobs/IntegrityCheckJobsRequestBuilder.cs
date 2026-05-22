@@ -40,34 +40,15 @@ namespace NinjaOne.Client.V2.Backup.IntegrityCheckJobs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsGetResponse?> GetAsIntegrityCheckJobsGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsRequestBuilder.IntegrityCheckJobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsGetResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsRequestBuilder.IntegrityCheckJobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsGetResponse> GetAsIntegrityCheckJobsGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsRequestBuilder.IntegrityCheckJobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsGetResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsRequestBuilder.IntegrityCheckJobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsGetResponse>(requestInfo, global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of integrity check jobs.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsIntegrityCheckJobsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsRequestBuilder.IntegrityCheckJobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsRequestBuilder.IntegrityCheckJobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse>(requestInfo, global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an integrity check job
@@ -78,37 +59,16 @@ namespace NinjaOne.Client.V2.Backup.IntegrityCheckJobs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostResponse?> PostAsIntegrityCheckJobsPostResponseAsync(global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostResponse?> PostAsync(global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostResponse> PostAsIntegrityCheckJobsPostResponseAsync(global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostResponse> PostAsync(global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostResponse>(requestInfo, global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates an integrity check job
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse"/></returns>
-        /// <param name="body">Request of the Integrity Check Job creation.</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsIntegrityCheckJobsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse?> PostAsync(global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse> PostAsync(global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse>(requestInfo, global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of integrity check jobs.
@@ -239,22 +199,6 @@ namespace NinjaOne.Client.V2.Backup.IntegrityCheckJobs
             [QueryParameter("stf")]
             public string Stf { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class IntegrityCheckJobsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Backup.IntegrityCheckJobs.IntegrityCheckJobsRequestBuilder.IntegrityCheckJobsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class IntegrityCheckJobsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

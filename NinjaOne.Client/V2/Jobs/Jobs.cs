@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,7 +9,7 @@ namespace NinjaOne.Client.V2.Jobs
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Jobs : ApiException, IAdditionalDataHolder, IParsable
+    public partial class Jobs : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -20,10 +19,10 @@ namespace NinjaOne.Client.V2.Jobs
         /// <summary>Job data</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::NinjaOne.Client.V2.Jobs.Jobs_data? DataEscaped { get; set; }
+        public global::NinjaOne.Client.V2.Jobs.Jobs_data? Data { get; set; }
 #nullable restore
 #else
-        public global::NinjaOne.Client.V2.Jobs.Jobs_data DataEscaped { get; set; }
+        public global::NinjaOne.Client.V2.Jobs.Jobs_data Data { get; set; }
 #endif
         /// <summary>Device information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,15 +40,13 @@ namespace NinjaOne.Client.V2.Jobs
         public global::NinjaOne.Client.V2.Jobs.Jobs_jobStatus? JobStatus { get; set; }
         /// <summary>Job Type</summary>
         public global::NinjaOne.Client.V2.Jobs.Jobs_jobType? JobType { get; set; }
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => MessageEscaped ?? string.Empty; }
         /// <summary>Job message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MessageEscaped { get; set; }
+        public string? Message { get; set; }
 #nullable restore
 #else
-        public string MessageEscaped { get; set; }
+        public string Message { get; set; }
 #endif
         /// <summary>Related PSA ticket ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,13 +110,13 @@ namespace NinjaOne.Client.V2.Jobs
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createTime", n => { CreateTime = n.GetDoubleValue(); } },
-                { "data", n => { DataEscaped = n.GetObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_data>(global::NinjaOne.Client.V2.Jobs.Jobs_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_data>(global::NinjaOne.Client.V2.Jobs.Jobs_data.CreateFromDiscriminatorValue); } },
                 { "device", n => { Device = n.GetObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_device>(global::NinjaOne.Client.V2.Jobs.Jobs_device.CreateFromDiscriminatorValue); } },
                 { "deviceId", n => { DeviceId = n.GetIntValue(); } },
                 { "jobResult", n => { JobResult = n.GetEnumValue<global::NinjaOne.Client.V2.Jobs.Jobs_jobResult>(); } },
                 { "jobStatus", n => { JobStatus = n.GetEnumValue<global::NinjaOne.Client.V2.Jobs.Jobs_jobStatus>(); } },
                 { "jobType", n => { JobType = n.GetEnumValue<global::NinjaOne.Client.V2.Jobs.Jobs_jobType>(); } },
-                { "message", n => { MessageEscaped = n.GetStringValue(); } },
+                { "message", n => { Message = n.GetStringValue(); } },
                 { "psaTicketId", n => { PsaTicketId = n.GetObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_psaTicketId>(global::NinjaOne.Client.V2.Jobs.Jobs_psaTicketId.CreateFromDiscriminatorValue); } },
                 { "sourceConfigUid", n => { SourceConfigUid = n.GetGuidValue(); } },
                 { "sourceName", n => { SourceName = n.GetStringValue(); } },
@@ -139,13 +136,13 @@ namespace NinjaOne.Client.V2.Jobs
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("createTime", CreateTime);
-            writer.WriteObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_data>("data", DataEscaped);
+            writer.WriteObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_data>("data", Data);
             writer.WriteObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_device>("device", Device);
             writer.WriteIntValue("deviceId", DeviceId);
             writer.WriteEnumValue<global::NinjaOne.Client.V2.Jobs.Jobs_jobResult>("jobResult", JobResult);
             writer.WriteEnumValue<global::NinjaOne.Client.V2.Jobs.Jobs_jobStatus>("jobStatus", JobStatus);
             writer.WriteEnumValue<global::NinjaOne.Client.V2.Jobs.Jobs_jobType>("jobType", JobType);
-            writer.WriteStringValue("message", MessageEscaped);
+            writer.WriteStringValue("message", Message);
             writer.WriteObjectValue<global::NinjaOne.Client.V2.Jobs.Jobs_psaTicketId>("psaTicketId", PsaTicketId);
             writer.WriteGuidValue("sourceConfigUid", SourceConfigUid);
             writer.WriteStringValue("sourceName", SourceName);

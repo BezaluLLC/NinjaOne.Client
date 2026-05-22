@@ -40,34 +40,15 @@ namespace NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsGetResponse?> GetAsRelationsGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsRequestBuilder.RelationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsGetResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsRequestBuilder.RelationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsGetResponse> GetAsRelationsGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsRequestBuilder.RelationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsGetResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsRequestBuilder.RelationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsGetResponse>(requestInfo, global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a paginated list of all asset relationships for a specific entity, optionally filtered by relationship type and relation side.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsRelationsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsRequestBuilder.RelationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsRequestBuilder.RelationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsResponse>(requestInfo, global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a paginated list of all asset relationships for a specific entity, optionally filtered by relationship type and relation side.
@@ -123,18 +104,8 @@ namespace NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations
 #endif
             [QueryParameter("pageSize")]
             public int? PageSize { get; set; }
-            [Obsolete("This property is deprecated, use SideAsGetSideQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("side")]
-            public string? Side { get; set; }
-#nullable restore
-#else
-            [QueryParameter("side")]
-            public string Side { get; set; }
-#endif
-            [QueryParameter("side")]
-            public global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.GetSideQueryParameterType? SideAsGetSideQueryParameterType { get; set; }
+            public global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.GetSideQueryParameterType? Side { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type")]
@@ -144,14 +115,6 @@ namespace NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations
             [QueryParameter("type")]
             public string Type { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RelationsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Item.Item.Relations.RelationsRequestBuilder.RelationsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

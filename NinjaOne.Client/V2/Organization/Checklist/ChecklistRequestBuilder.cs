@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.Organization.Checklist
                 return new global::NinjaOne.Client.V2.Organization.Checklist.Item.WithChecklistItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.organization.checklist.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Organization.Checklist.Item.WithChecklistItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Organization.Checklist.Item.WithChecklistItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("checklistId", position);
-                return new global::NinjaOne.Client.V2.Organization.Checklist.Item.WithChecklistItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Organization.Checklist.ChecklistRequestBuilder"/> and sets the default values.
         /// </summary>

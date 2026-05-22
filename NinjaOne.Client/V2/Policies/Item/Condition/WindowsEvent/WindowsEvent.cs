@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -12,7 +11,7 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
     /// Windows event policy condition response payload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WindowsEvent : ApiException, IAdditionalDataHolder, IParsable
+    public partial class WindowsEvent : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -66,8 +65,6 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
 #else
         public global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_inheritance Inheritance { get; set; }
 #endif
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
         /// <summary>Policy condition notification action</summary>
         public global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_notificationAction? NotificationAction { get; set; }
         /// <summary>Policy condition notify on reset</summary>
@@ -97,10 +94,10 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
         /// <summary>Event Source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceEscaped { get; set; }
+        public string? Source { get; set; }
 #nullable restore
 #else
-        public string SourceEscaped { get; set; }
+        public string Source { get; set; }
 #endif
         /// <summary>Windows event policy condition text</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -149,7 +146,7 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
                 { "resetThreshold", n => { ResetThreshold = n.GetIntValue(); } },
                 { "scripts", n => { Scripts = n.GetCollectionOfObjectValues<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_scripts>(global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_scripts.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "severity", n => { Severity = n.GetEnumValue<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_severity>(); } },
-                { "source", n => { SourceEscaped = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetObjectValue<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_text>(global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_text.CreateFromDiscriminatorValue); } },
             };
         }
@@ -174,7 +171,7 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
             writer.WriteIntValue("resetThreshold", ResetThreshold);
             writer.WriteCollectionOfObjectValues<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_scripts>("scripts", Scripts);
             writer.WriteEnumValue<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_severity>("severity", Severity);
-            writer.WriteStringValue("source", SourceEscaped);
+            writer.WriteStringValue("source", Source);
             writer.WriteObjectValue<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent_text>("text", Text);
             writer.WriteAdditionalData(AdditionalData);
         }

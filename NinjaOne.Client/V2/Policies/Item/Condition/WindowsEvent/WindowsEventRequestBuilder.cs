@@ -29,19 +29,6 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
                 return new global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.Item.WithCondition_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.policies.item.condition.windowsEvent.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.Item.WithCondition_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.Item.WithCondition_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("condition_id", position);
-                return new global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.Item.WithCondition_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -61,52 +48,41 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
         /// <summary>
         /// Get all windows event conditions for specified policy
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A List&lt;global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="List<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent>">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent>(requestInfo, global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Creates windows event condition for specified policy
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostResponse"/></returns>
         /// <param name="body">Windows event policy condition create request payload</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostResponse?> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostResponse> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEvent5XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostResponse>(requestInfo, global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all windows event conditions for specified policy
@@ -157,22 +133,6 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent
         public global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.Policies.Item.Condition.WindowsEvent.WindowsEventRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WindowsEventRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WindowsEventRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

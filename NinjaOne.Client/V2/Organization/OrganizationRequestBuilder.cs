@@ -69,19 +69,6 @@ namespace NinjaOne.Client.V2.Organization
                 return new global::NinjaOne.Client.V2.Organization.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.organization.item collection</summary>
-        /// <param name="position">Organization identifier</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Organization.Item.ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Organization.Item.ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("%2Did", position);
-                return new global::NinjaOne.Client.V2.Organization.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Organization.OrganizationRequestBuilder"/> and sets the default values.
         /// </summary>

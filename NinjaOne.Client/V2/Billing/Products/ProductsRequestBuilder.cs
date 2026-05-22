@@ -29,19 +29,6 @@ namespace NinjaOne.Client.V2.Billing.Products
                 return new global::NinjaOne.Client.V2.Billing.Products.Item.ProductsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.billing.products.item collection</summary>
-        /// <param name="position">Product ID</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Products.Item.ProductsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Billing.Products.Item.ProductsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::NinjaOne.Client.V2.Billing.Products.Item.ProductsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Billing.Products.ProductsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -87,40 +74,17 @@ namespace NinjaOne.Client.V2.Billing.Products
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.ProductsPostResponse?> PostAsProductsPostResponseAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Products.ProductsPostResponse?> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.ProductsPostResponse> PostAsProductsPostResponseAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Products.ProductsPostResponse> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
             var requestInfo = ToPostRequestInformation(body, contentType, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Products.ProductsPostResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Products.ProductsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new product in the catalog.The content field structure varies by quantity type and must include all required fields for that type:- **Required for all types**: price, cost, taxable, billing- **MANUAL**: quantity, productIds- **DEVICE_COUNTS**: anyRole, groupIds, allGroups, nodeRoles (optional), productIds- **END_USER_COUNTS**: anyRole, endUserRoles (optional), matchAllRoles, productIds- **BACKUP_STORAGE_COUNTS**: anyRole, groupIds, allGroups, nodeRoles (optional), isStorageIncludedPerDevice, includedStorage, productIds- **TIME_ENTRIES**: autoRoundTimeEntries, laborCodes, userRoles, onSiteMultiplier, offHoursMultiplier, remoteMultiplier, normalHoursMultiplier, scheduleTypeOffHours, scheduleTypeNormalHours, locationTypeOnSite, locationTypeRemote, includeTime, includedTimeAmountUnlimited, includedHours, unusedCarryOverUnlimited, carryOverLimit, productIdsThe productUserRole field controls which technicians can use this product.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Products.ProductsResponse"/></returns>
-        /// <param name="body">Binary request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="contentType">The request body content type.</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsProductsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.ProductsResponse?> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Billing.Products.ProductsResponse> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
-            var requestInfo = ToPostRequestInformation(body, contentType, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Products.ProductsResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Products.ProductsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of products with optional filters.The content field structure varies by quantity type and includes price, cost, taxable, and other type-specific fields:- **MANUAL**: price, cost, taxable, billing, quantity, productIds- **DEVICE_COUNTS**: price, cost, taxable, billing, anyRole, groupIds, allGroups, nodeRoles, productIds- **END_USER_COUNTS**: price, cost, taxable, billing, anyRole, endUserRoles, matchAllRoles, productIds- **BACKUP_STORAGE_COUNTS**: price, cost, taxable, billing, anyRole, groupIds, allGroups, nodeRoles, isStorageIncludedPerDevice, includedStorage, productIds- **TIME_ENTRIES**: price, cost, taxable, billing, autoRoundTimeEntries, laborCodes, userRoles, onSiteMultiplier, offHoursMultiplier, remoteMultiplier, normalHoursMultiplier, scheduleTypeOffHours, scheduleTypeNormalHours, locationTypeOnSite, locationTypeRemote, includeTime, includedTimeAmountUnlimited, includedHours, unusedCarryOverUnlimited, carryOverLimit, balance, productIds
@@ -210,22 +174,6 @@ namespace NinjaOne.Client.V2.Billing.Products
             [QueryParameter("quantityType")]
             public string QuantityType { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ProductsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Billing.Products.ProductsRequestBuilder.ProductsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ProductsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

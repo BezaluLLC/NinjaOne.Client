@@ -42,40 +42,17 @@ namespace NinjaOne.Client.V2.Billing.Invoices.Approve
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApprovePostResponse?> PostAsApprovePostResponseAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApprovePostResponse?> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApprovePostResponse> PostAsApprovePostResponseAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApprovePostResponse> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
             var requestInfo = ToPostRequestInformation(body, contentType, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApprovePostResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApprovePostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Approves one or more invoices by changing their status from PENDING to APPROVED.**Important:** Only invoices in PENDING status can be approved. All provided invoice IDs must correspond to existing PENDING invoices, otherwise the entire request will fail.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApproveResponse"/></returns>
-        /// <param name="body">Binary request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="contentType">The request body content type.</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsApprovePostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApproveResponse?> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApproveResponse> PostAsync(Stream body, string contentType, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
-            var requestInfo = ToPostRequestInformation(body, contentType, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApproveResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApproveResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Approves one or more invoices by changing their status from PENDING to APPROVED.**Important:** Only invoices in PENDING status can be approved. All provided invoice IDs must correspond to existing PENDING invoices, otherwise the entire request will fail.
@@ -109,14 +86,6 @@ namespace NinjaOne.Client.V2.Billing.Invoices.Approve
         public global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApproveRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.Billing.Invoices.Approve.ApproveRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ApproveRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

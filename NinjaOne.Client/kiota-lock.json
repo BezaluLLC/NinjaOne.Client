@@ -1,5 +1,5 @@
 {
-  "descriptionHash": "88184658C5C5518E1FF56C55EB236398ED23BC9F284E1F534337CAFB4CDBA3F70FC68DF14D4FE95747A5C398B07967F8D5A82BF96D9B123F736897CDD147B299",
+  "descriptionHash": "99E87FCB72401B1F3EB4C6DDAC4A1A49F4CC0B5E311CA2C69D210C86E61D6D44502CF347DA4CFABB7B27A9926C944AC58376954C789F837EBE716865B2D59761",
   "descriptionLocation": "Ref/NinjaRMM-API-v2.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.31.1",
@@ -8,7 +8,7 @@
   "clientNamespaceName": "NinjaOne.Client",
   "language": "CSharp",
   "usesBackingStore": false,
-  "excludeBackwardCompatible": false,
+  "excludeBackwardCompatible": true,
   "includeAdditionalData": true,
   "disableSSLValidation": false,
   "serializers": [

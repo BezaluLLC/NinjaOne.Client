@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.User.Technician
                 return new global::NinjaOne.Client.V2.User.Technician.Item.TechnicianItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.user.technician.item collection</summary>
-        /// <param name="position">Technician identifier</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.User.Technician.Item.TechnicianItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.User.Technician.Item.TechnicianItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::NinjaOne.Client.V2.User.Technician.Item.TechnicianItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.User.Technician.TechnicianRequestBuilder"/> and sets the default values.
         /// </summary>

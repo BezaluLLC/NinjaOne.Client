@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.User.Role
                 return new global::NinjaOne.Client.V2.User.Role.Item.WithRoleItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.user.role.item collection</summary>
-        /// <param name="position">Role identifier</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.User.Role.Item.WithRoleItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.User.Role.Item.WithRoleItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("roleId", position);
-                return new global::NinjaOne.Client.V2.User.Role.Item.WithRoleItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.User.Role.RoleRequestBuilder"/> and sets the default values.
         /// </summary>

@@ -41,37 +41,16 @@ namespace NinjaOne.Client.V2.Organization.Item.Template.Item.Document
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostResponse?> PostAsDocumentPostResponseAsync(global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostResponse?> PostAsync(global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostResponse> PostAsDocumentPostResponseAsync(global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostResponse> PostAsync(global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostResponse>(requestInfo, global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates an organization document and returns the document created
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsDocumentPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentResponse?> PostAsync(global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentResponse> PostAsync(global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentResponse>(requestInfo, global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an organization document and returns the document created
@@ -103,14 +82,6 @@ namespace NinjaOne.Client.V2.Organization.Item.Template.Item.Document
         public global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.Organization.Item.Template.Item.Document.DocumentRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DocumentRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

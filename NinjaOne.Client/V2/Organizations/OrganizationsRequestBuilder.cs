@@ -35,52 +35,41 @@ namespace NinjaOne.Client.V2.Organizations
         /// <summary>
         /// Returns list of organizations (Brief mode)
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A List&lt;global::NinjaOne.Client.V2.Organizations.Organizations&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="List<global::NinjaOne.Client.V2.Organizations.Organizations>">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Organizations.Organizations>?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Organizations.Organizations>> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::NinjaOne.Client.V2.Organizations.Organizations.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::NinjaOne.Client.V2.Organizations.Organizations>(requestInfo, global::NinjaOne.Client.V2.Organizations.Organizations.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Creates new organization with optional list of locations and policy mappings.Template organization ID can be specified to copy various settings
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::NinjaOne.Client.V2.Organizations.OrganizationsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::NinjaOne.Client.V2.Organizations.Organizations4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::NinjaOne.Client.V2.Organizations.Organizations5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::NinjaOne.Client.V2.Organizations.OrganizationsPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Organizations.OrganizationsPostResponse?> PostAsync(global::NinjaOne.Client.V2.Organizations.OrganizationsPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::NinjaOne.Client.V2.Organizations.OrganizationsPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Organizations.OrganizationsPostResponse> PostAsync(global::NinjaOne.Client.V2.Organizations.OrganizationsPostRequestBody body, Action<RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::NinjaOne.Client.V2.Organizations.Organizations4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::NinjaOne.Client.V2.Organizations.Organizations5XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Organizations.OrganizationsPostResponse>(requestInfo, global::NinjaOne.Client.V2.Organizations.OrganizationsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns list of organizations (Brief mode)
@@ -156,14 +145,6 @@ namespace NinjaOne.Client.V2.Organizations
             public int? PageSize { get; set; }
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class OrganizationsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
         /// Creates new organization with optional list of locations and policy mappings.Template organization ID can be specified to copy various settings
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -171,14 +152,6 @@ namespace NinjaOne.Client.V2.Organizations
         {
             [QueryParameter("templateOrganizationId")]
             public int? TemplateOrganizationId { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class OrganizationsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

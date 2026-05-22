@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -12,7 +11,7 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.CustomFields
     /// Custom fields policy condition response payload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CustomFields : ApiException, IAdditionalDataHolder, IParsable
+    public partial class CustomFields : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -74,8 +73,6 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.CustomFields
 #else
         public List<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields_matchAny> MatchAny { get; set; }
 #endif
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
         /// <summary>Policy condition notification action</summary>
         public global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields_notificationAction? NotificationAction { get; set; }
         /// <summary>Policy condition notify on reset</summary>

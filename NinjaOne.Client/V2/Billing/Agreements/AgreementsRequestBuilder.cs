@@ -29,19 +29,6 @@ namespace NinjaOne.Client.V2.Billing.Agreements
                 return new global::NinjaOne.Client.V2.Billing.Agreements.Item.AgreementsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.billing.agreements.item collection</summary>
-        /// <param name="position">Agreement ID</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Agreements.Item.AgreementsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Billing.Agreements.Item.AgreementsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::NinjaOne.Client.V2.Billing.Agreements.Item.AgreementsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Billing.Agreements.AgreementsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -86,37 +73,16 @@ namespace NinjaOne.Client.V2.Billing.Agreements
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostResponse?> PostAsAgreementsPostResponseAsync(global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostResponse?> PostAsync(global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostResponse> PostAsAgreementsPostResponseAsync(global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostResponse> PostAsync(global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates an agreement with all his properties and products.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Billing.Agreements.AgreementsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsAgreementsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsResponse?> PostAsync(global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsResponse> PostAsync(global::NinjaOne.Client.V2.Billing.Agreements.AgreementsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsResponse>(requestInfo, global::NinjaOne.Client.V2.Billing.Agreements.AgreementsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves an agreement list given some filter parameters.
@@ -193,22 +159,6 @@ namespace NinjaOne.Client.V2.Billing.Agreements
             /// <summary>Filters agreements that contain a specific catalog product ID.</summary>
             [QueryParameter("productId")]
             public int? ProductId { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgreementsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Billing.Agreements.AgreementsRequestBuilder.AgreementsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgreementsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

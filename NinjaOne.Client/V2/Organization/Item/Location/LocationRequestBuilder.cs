@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.Organization.Item.Location
                 return new global::NinjaOne.Client.V2.Organization.Item.Location.Item.LocationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.organization.item.location.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Organization.Item.Location.Item.LocationItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Organization.Item.Location.Item.LocationItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("location%2Did", position);
-                return new global::NinjaOne.Client.V2.Organization.Item.Location.Item.LocationItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Organization.Item.Location.LocationRequestBuilder"/> and sets the default values.
         /// </summary>

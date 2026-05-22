@@ -27,19 +27,6 @@ namespace NinjaOne.Client.V2.User.EndUser
                 return new global::NinjaOne.Client.V2.User.EndUser.Item.EndUserItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.user.endUser.item collection</summary>
-        /// <param name="position">End user identifier</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.User.EndUser.Item.EndUserItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.User.EndUser.Item.EndUserItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::NinjaOne.Client.V2.User.EndUser.Item.EndUserItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.User.EndUser.EndUserRequestBuilder"/> and sets the default values.
         /// </summary>

@@ -40,34 +40,15 @@ namespace NinjaOne.Client.V2.Itam.AssetRelationship.Types
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesGetResponse?> GetAsTypesGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesRequestBuilder.TypesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesGetResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesRequestBuilder.TypesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesGetResponse> GetAsTypesGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesRequestBuilder.TypesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesGetResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesRequestBuilder.TypesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesGetResponse>(requestInfo, global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a paginated list of all relationship types, including both system default and user created types, available for creating asset relationships.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsTypesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesRequestBuilder.TypesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesRequestBuilder.TypesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse>(requestInfo, global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new relationship type to be used when creating relationships between assets.
@@ -78,37 +59,16 @@ namespace NinjaOne.Client.V2.Itam.AssetRelationship.Types
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostResponse?> PostAsTypesPostResponseAsync(global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostResponse?> PostAsync(global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostResponse> PostAsTypesPostResponseAsync(global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostResponse> PostAsync(global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostResponse>(requestInfo, global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new relationship type to be used when creating relationships between assets.
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsTypesPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse?> PostAsync(global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse> PostAsync(global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse>(requestInfo, global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a paginated list of all relationship types, including both system default and user created types, available for creating asset relationships.
@@ -186,22 +146,6 @@ namespace NinjaOne.Client.V2.Itam.AssetRelationship.Types
 #endif
             [QueryParameter("pageSize")]
             public int? PageSize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TypesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.Itam.AssetRelationship.Types.TypesRequestBuilder.TypesRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TypesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

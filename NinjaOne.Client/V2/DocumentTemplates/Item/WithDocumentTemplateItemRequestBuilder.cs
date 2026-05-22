@@ -69,34 +69,15 @@ namespace NinjaOne.Client.V2.DocumentTemplates.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateGetResponse?> GetAsWithDocumentTemplateGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder.WithDocumentTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateGetResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder.WithDocumentTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateGetResponse> GetAsWithDocumentTemplateGetResponseAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder.WithDocumentTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateGetResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder.WithDocumentTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateGetResponse>(requestInfo, global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get document template
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsWithDocumentTemplateGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse?> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder.WithDocumentTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse> GetAsync(Action<RequestConfiguration<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder.WithDocumentTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse>(requestInfo, global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a document template by id
@@ -107,37 +88,16 @@ namespace NinjaOne.Client.V2.DocumentTemplates.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutResponse?> PutAsWithDocumentTemplatePutResponseAsync(global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutResponse?> PutAsync(global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutResponse> PutAsWithDocumentTemplatePutResponseAsync(global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutResponse> PutAsync(global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutResponse>(requestInfo, global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates a document template by id
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PutAsWithDocumentTemplatePutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse?> PutAsync(global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse> PutAsync(global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplatePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse>(requestInfo, global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a document template by id
@@ -208,14 +168,6 @@ namespace NinjaOne.Client.V2.DocumentTemplates.Item
             return new global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithDocumentTemplateItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
         /// Get document template
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -224,22 +176,6 @@ namespace NinjaOne.Client.V2.DocumentTemplates.Item
             /// <summary>Includes allowed technician roles.</summary>
             [QueryParameter("includeTechnicianRoles")]
             public bool? IncludeTechnicianRoles { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithDocumentTemplateItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::NinjaOne.Client.V2.DocumentTemplates.Item.WithDocumentTemplateItemRequestBuilder.WithDocumentTemplateItemRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithDocumentTemplateItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

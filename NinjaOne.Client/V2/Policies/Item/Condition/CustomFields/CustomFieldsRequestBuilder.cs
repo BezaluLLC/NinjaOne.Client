@@ -29,19 +29,6 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.CustomFields
                 return new global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.Item.WithCondition_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the NinjaOne.Client.v2.policies.item.condition.customFields.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.Item.WithCondition_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.Item.WithCondition_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("condition_id", position);
-                return new global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.Item.WithCondition_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -61,52 +48,41 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.CustomFields
         /// <summary>
         /// Get all custom fields policy conditions for specified policy
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A List&lt;global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="List<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields>">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields>(requestInfo, global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Creates custom fields policy condition for specified policy
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostResponse"/></returns>
         /// <param name="body">Custom fields policy condition create request payload</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostResponse?> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostResponse> PostAsync(global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFields5XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostResponse>(requestInfo, global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all custom fields policy conditions for specified policy
@@ -157,22 +133,6 @@ namespace NinjaOne.Client.V2.Policies.Item.Condition.CustomFields
         public global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.Policies.Item.Condition.CustomFields.CustomFieldsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

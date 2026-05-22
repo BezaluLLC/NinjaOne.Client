@@ -41,37 +41,16 @@ namespace NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchResponse?> PatchAsDeviceAccessPatchResponseAsync(global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchResponse?> PatchAsync(global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchResponse> PatchAsDeviceAccessPatchResponseAsync(global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchResponse> PatchAsync(global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchResponse>(requestInfo, global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Add or remove up to 100 accessible devices for a specific end user by their ID
-        /// </summary>
-        /// <returns>A <see cref="global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessResponse"/></returns>
-        /// <param name="body">Patch end user accessible devices request payload</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PatchAsDeviceAccessPatchResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessResponse?> PatchAsync(global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessResponse> PatchAsync(global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessResponse>(requestInfo, global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Add or remove up to 100 accessible devices for a specific end user by their ID
@@ -103,14 +82,6 @@ namespace NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess
         public global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessRequestBuilder WithUrl(string rawUrl)
         {
             return new global::NinjaOne.Client.V2.User.EndUser.Item.DeviceAccess.DeviceAccessRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DeviceAccessRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }
